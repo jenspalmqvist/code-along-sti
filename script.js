@@ -10,7 +10,7 @@
   }
 
   function clearLocalData() {
-    localStorage.removeItem("pokemon");
+    localStorage.setItem("pokemon", JSON.stringify([]));
   }
 
   async function onSubmit(event) {
