@@ -1,4 +1,18 @@
 {
+  if (!localStorage.getItem("pokemon")) {
+    console.log("first time!");
+    localStorage.setItem("pokemon", JSON.stringify([]));
+  } else {
+    const localPokemonData = JSON.parse(localStorage.getItem("pokemon"));
+    if (localPokemonData.length > 0) {
+      localPokemonData.forEach((pokemon) => createPokemonBlock(pokemon));
+    }
+  }
+
+  function clearLocalData() {
+    localStorage.removeItem("pokemon");
+  }
+
   async function onSubmit(event) {
     event.preventDefault();
   }
@@ -16,6 +30,16 @@
     );
 
     const pokemonData = await response.json();
+
+    const localPokemonData = JSON.parse(localStorage.getItem("pokemon"));
+
+    localPokemonData.push({
+      name: pokemonData.name,
+      id: pokemonData.id,
+      height: pokemonData.height,
+    });
+
+    localStorage.setItem("pokemon", JSON.stringify(localPokemonData));
 
     createPokemonBlock(pokemonData);
   }
@@ -35,6 +59,7 @@
   }
 
   function onNameChange(event) {
+    console.log("Change!");
     sessionStorage.setItem("name", event.target.value);
   }
 
