@@ -34,6 +34,16 @@
     container.appendChild(pokemonBlock);
   }
 
-  // Alternativt sätt
-  // document.getElementById("pokemonForm").onsubmit = onSubmit();
+  function onNameChange(event) {
+    sessionStorage.setItem("name", event.target.value);
+  }
+
+  const nameInput = document.getElementById("nameInput");
+
+  if (sessionStorage.getItem("name")) {
+    nameInput.value = sessionStorage.getItem("name");
+  }
+
+  const pName = document.getElementById("sessionName");
+  pName.innerText = sessionStorage.getItem("name");
 }

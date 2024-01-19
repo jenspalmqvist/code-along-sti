@@ -10,6 +10,19 @@
       <input type="submit" />
     </form>
     <div class="grid-container" id="gridContainer"></div>
+
+    <h2>Contact form</h2>
+    <form id="contactForm">
+      <input
+        type="text"
+        name="name"
+        placeholder="name"
+        id="nameInput"
+        onchange="onNameChange(event)"
+      />
+      <input type="email" name="email" placeholder="email" id="emailInput" />
+      <p id="sessionName"></p>
+    </form>
   </body>
   <script src="script.js"></script>
 </html>
