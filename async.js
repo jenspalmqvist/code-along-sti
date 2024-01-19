@@ -51,8 +51,8 @@
   }
 
   async function start() {
-    const asyncResult = await makeTeaAsync();
     const syncResult = await makeTeaSync();
+    const asyncResult = await makeTeaAsync();
     console.log(`Det tog ${syncResult / 1000} sekunder att fixa teet synkront`);
 
     console.log(
