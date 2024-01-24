@@ -1,0 +1,38 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Absolut högst prio har style som vi skriver i vår element-tag
+    t.ex. <div style="background-color: black;" /> */
+/* Högst prio (id-selector) */
+#gridContainer {
+  background-color: #44f344;
+}
+
+/* Näst högst prio  (class-selector), en selector med flera classes har prio över en med färre*/
+.grid-container.test-class {
+  background-color: #44f344;
+}
+
+.grid-container {
+  background-color: #44f344;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* Näst lägst prio (element-selector)
+    Om två selectorer har samma specificity så kommer den som läses in sist att ha prio
+    dvs. den som ligger längre ner i stylesheeten */
+div {
+  background-color: #44f344;
+}
+
+span {
+  background-color: #775793;
+}
+
+h2 {
+  background-color: #44f344;
+}/*# sourceMappingURL=style2.css.map */
